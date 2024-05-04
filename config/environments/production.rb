@@ -1,4 +1,10 @@
 require "active_support/core_ext/integer/time"
+server '43.205.195.35', user: 'deploy', roles: %w{web app db}
+set :ssh_options, {
+forward_agent: true,
+auth_methods: %w[publickey],
+keys: %w[/home/blubirch/Downloads/Trial.pem]
+}
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
